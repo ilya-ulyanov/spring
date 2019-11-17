@@ -1,13 +1,18 @@
 package com.mastering.spring.service;
 
 import com.mastering.spring.data.Data;
-import com.mastering.spring.data.DataServiceImpl;
+import com.mastering.spring.data.DataService;
 
 public class BusinessServiceImpl {
+    private final DataService dataService;
+
+    public BusinessServiceImpl(DataService dataService) {
+        this.dataService = dataService;
+    }
+
     public long calculateSum(User user) {
-        DataServiceImpl dataService = new DataServiceImpl();
         long sum = 0;
-        for (Data data : dataService.retrieveData(user)) {
+        for (Data data : this.dataService.retrieveData(user)) {
             sum += data.getValue();
         }
 
