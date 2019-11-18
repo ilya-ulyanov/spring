@@ -11,11 +11,7 @@ public class BusinessServiceImpl implements BusinessService {
 
     @Qualifier("secondaryDataService")
     @Autowired
-    private final DataService dataService;
-
-    public BusinessServiceImpl(DataService dataService) {
-        this.dataService = dataService;
-    }
+    private DataService dataService;
 
     @Override
     public long calculateSum(User user) {
