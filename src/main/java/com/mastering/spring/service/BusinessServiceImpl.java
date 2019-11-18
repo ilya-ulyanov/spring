@@ -3,10 +3,13 @@ package com.mastering.spring.service;
 import com.mastering.spring.data.Data;
 import com.mastering.spring.data.DataService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
 public class BusinessServiceImpl implements BusinessService {
+
+    @Qualifier("secondaryDataService")
     @Autowired
     private final DataService dataService;
 
